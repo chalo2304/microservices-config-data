@@ -13,7 +13,7 @@ spring:
       authentication-database: admin
 app:
   maintenance:
-    message: "Sistema Operativo - Versión 1.0"
+    message: "ATENCIÓN MANTENIMIENTO PROGRAMADO 22:00"
 
 management:
   endpoints:
