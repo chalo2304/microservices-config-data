@@ -11,6 +11,16 @@ spring:
       username: root
       password: password
       authentication-database: admin
+app:
+  maintenance:
+    message: "Sistema Operativo - Versión 1.0"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "refresh, health"
+
 
 server:
   port: 8080
