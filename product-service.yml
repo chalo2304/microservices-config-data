@@ -1,0 +1,19 @@
+spring:
+  threads:
+    virtual:
+      enabled: true
+  data:
+    mongodb:
+      # Sintaxis: ${NOMBRE_VAR_ENTORNO : VALOR_POR_DEFECTO}
+      host: localhost
+      port: 27017
+      database: product-db
+      username: root
+      password: password
+      authentication-database: admin
+
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-stacktrace: never
