@@ -23,7 +23,7 @@ spring:
           issuer-uri: http://localhost:8080/realms/ecommerce-realm
 eureka:
   client:
-    service:url:
+    service-url:
       defaultZone: http://localhost:8761/eureka/
 order:
   enabled: true
