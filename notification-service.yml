@@ -13,6 +13,9 @@ logging:
 
 # --- NUEVA CONFIGURACIÓN SMTP (Mailtrap) ---
 spring:
+  threads:
+    virtual:
+      enabled: true
   rabbitmq:
     listener:
       simple:
