@@ -20,12 +20,35 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
 inventory:
   allow-backorders: false
+
+# ✅ CONFIGURACIÓN UNIFICADA DE MANAGEMENT (Observabilidad + Actuator)
 management:
+  tracing:
+    sampling:
+      probability: 1.0
+  opentelemetry:
+    tracing:
+      export:
+        otlp:
+          endpoint: http://localhost:4318/v1/traces
+    logging:
+      export:
+        otlp:
+          endpoint: http://localhost:4318/v1/logs
+  otlp:
+    metrics:
+      export:
+        url: http://localhost:4318/v1/metrics
   endpoints:
     web:
       exposure:
-        include: "refresh, health"
+        # Agregamos prometheus para que el stack LGTM pueda leer las métricas
+        include: "refresh, health, prometheus"
 
+# ✅ CORRELACIÓN DE LOGS (Para que el inventario reporte IDs en la consola)
+logging:
+  pattern:
+    level: "%5p [${spring.application.name:},%X{trace_id:-},%X{span_id:-}]"
 
 server:
   port: 8082
